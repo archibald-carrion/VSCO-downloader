@@ -7,6 +7,12 @@ The original objective was to use it to create dataset for machine learning.
 ```bash
 pip install -r requirements.txt
 ```
+*Note:* You need to have python installed on your computer to run this application.
+
+The requirements.txt file contains the libraries that are needed to run this application, the requirements.txt file does not specify the version of the libraries, so it is possible that the application will not work if the libraries are updated.
+The application was tested with the following versions of the libraries:
+- beautifulsoup4==4.12.3
+- requests==2.31.0
 
 ## Usage
 ```bash
