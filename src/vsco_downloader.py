@@ -56,8 +56,17 @@ def download_image_from_vsco(url, output_folder='images'):
     image_name = os.path.join(output_folder, sanitize_filename(os.path.basename(parsed_url.path)))
     
     # Save the image
+    # create a unique name for the image using the username
+    # https://vsco.co/username/media/132465
+    name = url.split('/')[-3]
+    video_name = url.split('/')[-1]
+    image_name = os.path.join(output_folder, f"{name}_{video_name}.jpg")
+
+    # with open(image_name, 'wb') as f:
+    #     f.write(image_response.content)
     with open(image_name, 'wb') as f:
-        f.write(image_response.content)
+        for chunk in image_response.iter_content(chunk_size=1024):
+            f.write(chunk)
     
     print(f"Image successfully downloaded to {image_name}")
 
